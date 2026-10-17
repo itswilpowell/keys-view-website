@@ -1,0 +1,104 @@
+/* Keys View Construction Group — site styles
+   Palette: navy #10243A · gold #C5A059 · gold-ink #8A6A2B · emerald #0B6655 · slate #1C2226 */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #FFFFFF;
+  color: #10243A;
+  font-family: 'Open Sans', system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+img { max-width: 100%; }
+a { color: #0B6655; }
+a:hover { color: #10243A; }
+:focus-visible { outline: 2px solid #C5A059; outline-offset: 3px; }
+[hidden] { display: none !important; }
+
+/* Skip link */
+.skip { position: absolute; left: -9999px; top: 0; background: #C5A059; color: #10243A; padding: 12px 16px; z-index: 10; font-weight: 700; }
+.skip:focus { left: 16px; top: 16px; }
+
+/* Header + nav */
+.navlink { color: #FFFFFF; text-decoration: none; font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; min-height: 44px; display: inline-flex; align-items: center; }
+.navlink:hover, .navlink[aria-current="page"] { color: #C5A059; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 28px; font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; border-radius: 2px; text-decoration: none; cursor: pointer; border: 2px solid transparent; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btn-sm { min-height: 44px; padding: 0 16px; font-size: 13px; }
+.btn-gold { background: #C5A059; color: #10243A; } .btn-gold:hover { background: #D4B579; color: #10243A; }
+.btn-navy { background: #10243A; color: #FFFFFF; } .btn-navy:hover { background: #1D3A5A; color: #FFFFFF; }
+.btn-ghost { background: transparent; color: #FFFFFF; border-color: #FFFFFF; } .btn-ghost:hover { background: #FFFFFF; color: #10243A; }
+.btn-line { background: #FFFFFF; color: #10243A; border-color: #10243A; } .btn-line:hover { background: #10243A; color: #FFFFFF; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Cards, tags, lists */
+.card { transition: border-color .15s; } .card:hover { border-color: #C5A059; }
+.tag { display: inline-block; padding: 4px 10px; background: #F5F6F8; color: #10243A; border-radius: 2px; font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.tag-green { background: #E3F0EC; color: #0B6655; }
+.muted { color: #4A5561; }
+.small { font-size: 16px; }
+.eyebrow-ink { font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .24em; color: #8A6A2B; }
+.checklist { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.checklist li { display: flex; gap: 10px; }
+.numlist { margin: 0; padding: 0; list-style: none; display: grid; gap: 12px; font-size: 17px; }
+.numlist li { display: flex; gap: 12px; }
+.num { flex: none; width: 28px; height: 28px; border-radius: 50%; background: #10243A; color: #C5A059; display: flex; align-items: center; justify-content: center; font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 13px; }
+.footlink { color: #D5DCE3; text-decoration: none; } .footlink:hover { color: #C5A059; }
+
+/* Home: process timeline */
+.step { display: flex; align-items: center; gap: 14px; min-height: 72px; padding: 14px 18px; text-align: left; border-radius: 2px; border: 1px solid #DDE2E7; background: #FFFFFF; color: #10243A; font: inherit; cursor: pointer; transition: background .15s; }
+.step:hover { border-color: #10243A; }
+.step-num { flex: none; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 15px; background: #F5F6F8; color: #10243A; }
+.step-title { font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 16px; line-height: 1.25; }
+.step.is-done .step-num { background: #C5A059; }
+.step.is-active { background: #10243A; color: #FFFFFF; border-color: #10243A; }
+.step.is-active .step-num { background: #C5A059; }
+
+/* Services: checker */
+.chk-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 8px; min-height: 44px; }
+.chk-bar { height: 4px; background: #F5F6F8; border-radius: 2px; margin-bottom: 32px; }
+.chk-bar > div { height: 4px; background: #C5A059; border-radius: 2px; transition: width .2s; }
+.chk-q { margin: 0 0 24px; font-family: Montserrat, system-ui, sans-serif; font-size: 24px; line-height: 1.3; }
+.chk-opts { display: grid; gap: 12px; }
+.opt { display: flex; align-items: center; gap: 16px; min-height: 64px; padding: 14px 20px; text-align: left; font: inherit; font-size: 18px; color: #10243A; background: #FFFFFF; border: 2px solid #DDE2E7; border-radius: 2px; cursor: pointer; transition: border-color .15s, background .15s; }
+.opt:hover { border-color: #10243A; }
+.opt.is-selected { border-color: #10243A; background: #F5F6F8; }
+.opt-dot { flex: none; width: 22px; height: 22px; border-radius: 50%; border: 2px solid #10243A; display: flex; align-items: center; justify-content: center; }
+.opt-dot span { width: 10px; height: 10px; border-radius: 50%; }
+.opt.is-selected .opt-dot span { background: #10243A; }
+.chk-result { margin: 16px 0 8px; font-family: 'Bebas Neue', Impact, sans-serif; font-weight: 400; font-size: 44px; line-height: 1.05; letter-spacing: .02em; }
+.chk-urgent { display: flex; gap: 12px; padding: 16px 20px; border: 1px solid #C5A059; background: #FBF7EF; border-radius: 2px; margin-bottom: 28px; font-size: 17px; }
+.chk-cols { display: flex; flex-wrap: wrap; gap: 32px; }
+.chk-bring { flex: 1 1 260px; min-width: 0; background: #F5F6F8; padding: 24px; border-radius: 2px; }
+.chk-h4 { margin: 0 0 12px; font-family: Montserrat, system-ui, sans-serif; font-size: 14px; letter-spacing: .2em; }
+
+/* Projects */
+.chip { min-height: 44px; padding: 0 18px; border-radius: 2px; border: 1px solid #10243A; background: #FFFFFF; color: #10243A; font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .15s, color .15s; }
+.chip[aria-pressed="true"] { background: #10243A; color: #FFFFFF; }
+.pcard { display: block; padding: 0; text-align: left; font: inherit; color: #10243A; background: #FFFFFF; border: 1px solid #DDE2E7; border-radius: 4px; overflow: hidden; cursor: pointer; transition: border-color .15s; }
+.pcard:hover, .pcard.is-current { border-color: #C5A059; }
+.pcard-img { position: relative; aspect-ratio: 4 / 3; }
+.pcard-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ba-tag { position: absolute; right: 16px; bottom: 16px; padding: 4px 10px; background: #C5A059; color: #10243A; border-radius: 2px; font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 11px; letter-spacing: .12em; }
+.pcard-body { padding: 24px; }
+.pcard-body h3 { margin: 12px 0 4px; font-family: Montserrat, system-ui, sans-serif; font-size: 20px; line-height: 1.3; }
+.pcard-body p { margin: 0; font-size: 16px; color: #4A5561; }
+.slider { width: 100%; accent-color: #C5A059; height: 44px; cursor: ew-resize; }
+
+/* Contact form */
+.field { width: 100%; min-height: 52px; padding: 12px 16px; font: inherit; font-size: 18px; color: #10243A; background: #FFFFFF; border: 1px solid #8995A1; border-radius: 2px; }
+.field:focus { border-color: #10243A; outline: 2px solid #C5A059; outline-offset: 1px; }
+.lbl { display: block; margin-bottom: 8px; font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 15px; }
+.choice { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 16px; border: 1px solid #DDE2E7; border-radius: 2px; cursor: pointer; font-size: 17px; }
+.choice input { width: 20px; height: 20px; accent-color: #10243A; }
+
+/* Phones */
+@media (max-width: 640px) {
+  h1[style*="Bebas"] { font-size: 56px !important; }
+  h2[style*="Bebas"] { font-size: 40px !important; }
+  .pad-box { padding: 24px !important; }
+}
