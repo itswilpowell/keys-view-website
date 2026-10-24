@@ -95,6 +95,8 @@ a:hover { color: #10243A; }
 .lbl { display: block; margin-bottom: 8px; font-family: Montserrat, system-ui, sans-serif; font-weight: 700; font-size: 15px; }
 .choice { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 16px; border: 1px solid #DDE2E7; border-radius: 2px; cursor: pointer; font-size: 17px; }
 .choice input { width: 20px; height: 20px; accent-color: #10243A; }
+/* Spam trap field: moved off-screen so people never see it */
+.hp { position: absolute !important; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
 /* Phones */
 @media (max-width: 640px) {
