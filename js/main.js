@@ -203,16 +203,27 @@
   if (form) {
     var done = document.getElementById('form-done');
     var err = document.getElementById('form-error');
+    var MIN_SECONDS = 3;               // real people take longer than this to fill the form
+    var loadedAt = Date.now();
+    function success() { form.hidden = true; done.hidden = false; done.focus(); }
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       err.hidden = true;
-      var action = form.getAttribute('action') || '';
-      function success() { form.hidden = true; done.hidden = false; done.focus(); }
-      if (action.indexOf('YOUR_FORM_ID') !== -1) { success(); return; } // demo mode until a form service is connected
+      var trap = form.querySelector('input[name="botcheck"]');
+      var tooFast = (Date.now() - loadedAt) / 1000 < MIN_SECONDS;
+      // Bot detected: pretend it worked, but send nothing.
+      if ((trap && trap.checked) || tooFast) { success(); return; }
       var btn = form.querySelector('button[type="submit"]');
       btn.disabled = true; btn.textContent = 'Sending…';
-      fetch(action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
-        .then(function (r) { if (!r.ok) throw new Error('bad'); success(); form.reset(); })
+      var data = Object.fromEntries(new FormData(form));
+      delete data.botcheck;
+      fetch(form.getAttribute('action'), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(function (r) { return r.json().then(function (j) { if (!r.ok || j.success === false) throw new Error(j.message || 'bad'); }); })
+        .then(function () { success(); form.reset(); loadedAt = Date.now(); })
         .catch(function () { err.hidden = false; })
         .then(function () { btn.disabled = false; btn.textContent = 'Send request'; });
     });
