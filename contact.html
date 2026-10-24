@@ -51,7 +51,12 @@
   <div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 96px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
 
     <div class="pad-box" style="flex: 999 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #DDE2E7; border-radius: 4px; padding: 40px">
-        <form id="estimate-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display: grid; gap: 28px">
+        <form id="estimate-form" action="https://api.web3forms.com/submit" method="POST" style="display: grid; gap: 28px">
+          <input type="hidden" name="access_key" value="67148f28-5520-4e37-a442-448113ba8866">
+          <input type="hidden" name="subject" value="New estimate request from thekeysview.com">
+          <input type="hidden" name="from_name" value="Keys View Website">
+          <!-- Spam trap: hidden from people, bots tend to fill it in. Leave it empty. -->
+          <div class="hp" aria-hidden="true"><label for="botcheck">Leave this box unchecked</label><input type="checkbox" id="botcheck" name="botcheck" tabindex="-1" autocomplete="off"></div>
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px">
             <div><label class="lbl" for="name">Full name</label><input class="field" id="name" name="name" type="text" autocomplete="name" required></div>
             <div><label class="lbl" for="phone">Phone</label><input class="field" id="phone" name="phone" type="tel" autocomplete="tel" required></div>
