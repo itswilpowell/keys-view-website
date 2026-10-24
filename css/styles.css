@@ -98,6 +98,12 @@ a:hover { color: #10243A; }
 /* Spam trap field: moved off-screen so people never see it */
 .hp { position: absolute !important; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 
+/* Privacy policy */
+.legal h2 { margin: 48px 0 12px; font-family: Montserrat, system-ui, sans-serif; font-size: 22px; line-height: 1.3; }
+.legal p, .legal li { color: #10243A; }
+.legal ul { padding-left: 22px; }
+.legal li { margin-bottom: 8px; }
+
 /* Phones */
 @media (max-width: 640px) {
   h1[style*="Bebas"] { font-size: 56px !important; }
